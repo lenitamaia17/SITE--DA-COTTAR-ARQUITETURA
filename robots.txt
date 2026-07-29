@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.cottararquitetura.com.br/sitemap.xml
+Sitemap: https://cottar-arquitetura.vercel.app/sitemap.xml
