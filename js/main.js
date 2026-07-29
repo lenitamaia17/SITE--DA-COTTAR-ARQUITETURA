@@ -311,6 +311,10 @@ function renderContact() {
 function initContactForm() {
   const form = document.getElementById("contact-form");
   const feedback = document.getElementById("form-feedback");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const { publicKey, serviceId, templateId } = SITE_DATA.emailjs;
+
+  emailjs.init(publicKey);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -321,11 +325,24 @@ function initContactForm() {
       return;
     }
 
-    // Front-end apenas: em produção, substituir por integração com
-    // backend/serviço de e-mail (ex: EmailJS, endpoint próprio, etc.)
     feedback.classList.remove("is-error");
-    feedback.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contato.";
-    form.reset();
+    feedback.textContent = "Enviando mensagem...";
+    submitBtn.disabled = true;
+
+    emailjs
+      .sendForm(serviceId, templateId, form)
+      .then(() => {
+        feedback.classList.remove("is-error");
+        feedback.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contato.";
+        form.reset();
+      })
+      .catch(() => {
+        feedback.classList.add("is-error");
+        feedback.textContent = "Não foi possível enviar agora. Tente novamente ou use o WhatsApp/e-mail ao lado.";
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+      });
   });
 }
 

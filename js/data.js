@@ -177,8 +177,8 @@ const SITE_DATA = {
     {
       id: "apartamento-domingos",
       name: "Apartamento Brisa do Mar",
-      category: "residencial",
-      categoryLabel: "Residencial",
+      category: "interiores",
+      categoryLabel: "Interiores",
       location: "R. Sizenaldo Matos Bourguignon, Morro Atalaia, Guarapari - ES",
       year: 2026,
       area: "≈82 m²",
@@ -289,6 +289,15 @@ const SITE_DATA = {
     // Gerado a partir do link do Google Maps compartilhado (Vila Velha/ES),
     // convertido para o formato de embed via iframe.
     mapEmbedUrl: "https://www.google.com/maps?q=-20.3477818,-40.2949184&z=13&output=embed",
+  },
+
+  // ---------------------------------------------------------------
+  // ENVIO DO FORMULÁRIO DE CONTATO (EmailJS - emailjs.com)
+  // ---------------------------------------------------------------
+  emailjs: {
+    publicKey: "J6iCRADfnzig5i0Uu",
+    serviceId: "Cottar-Arquitetura",
+    templateId: "template_sifzshr",
   },
 
   // ---------------------------------------------------------------
